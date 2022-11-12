@@ -26,14 +26,15 @@ export default {
 
   methods: {
     callToAxios(category) {
+
+      this.store.flagLoading = false;
+
       if (category === "") {
-
-        this.store.flagLoading = false;
-
         axios
           .get("https://www.breakingbadapi.com/api/characters")
           .then((resp) => {
             this.store.personaggi = resp.data;
+            this.store.flagLoading = true;
           });
 
       } else if (category === "Breaking Bad") {
@@ -41,16 +42,16 @@ export default {
           .get("https://www.breakingbadapi.com/api/characters?category=Breaking+Bad")
           .then((resp) => {
             this.store.personaggi = resp.data;
+            this.store.flagLoading = true;
           });
       } else {
         axios
           .get("https://www.breakingbadapi.com/api/characters?category=Better+Call+Saul")
           .then((resp) => {
             this.store.personaggi = resp.data;
+            this.store.flagLoading = true;
           });
       }
-
-      this.store.flagLoading = true;
     }
 
   }
