@@ -1,0 +1,14 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./partials/variables";
+
+
+
+body {
+  font-size: 100%;
+  background-color: $background-color;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+}
